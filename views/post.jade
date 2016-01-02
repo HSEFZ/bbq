@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    body.no-sidebar
+        #header
+            .container
+                h1
+                    a#logo(href='#') 华师大二附中表白墙
+                nav#nav
+                    ul
+                        li
+                            a(href='/') 首页
+                        li
+                            a(href='/view') 表白历史
+        #main.wrapper.style1
+            .container
+                section
+                    header.major
+                        h2 我要表白！！！
+                        span.byline I wanna confess my love!
+                    form(method='POST', action='/post')
+                        input(type='text', name='title')
+                        br
+                        textarea(rows='10', cols='20', name='content')
+                        input(type='submit', style='padding: 0 0 0 0; margin: 20px 0 0 0;')

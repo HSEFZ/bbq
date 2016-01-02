@@ -1,0 +1,96 @@
+mixin giveContent(x)
+    if x.title
+        h2 #{x.title}
+            small ##{x.id}
+        if x.date
+            span(style='position: absolute; right: 10%; font-size: 14px')= x.date
+        else
+            span(style='position: absolute; right: 10%; font-size: 14px') 日期未纪录
+    else
+        h2 未填写标题
+            small ##{x.id}
+        if x.date
+            span(style='position: absolute; right: 10%; font-size: 14px')= x.date
+        else
+            span(style='position: absolute; right: 10%; font-size: 14px') 日期未纪录
+    br
+    if x.content
+        blockquote(style='width: 80%; white-space: pre; word-wrap: break-word')= x.content
+    else
+        blockquote(style='width: 80%') [这个人太懒了, 内容都不填！]
+extends layout
+
+block content
+    body.left-sidebar
+        #header
+            .container
+                h1
+                    a#logo(href='#') 华师大二附中表白墙
+                nav#nav
+                    ul
+                        li
+                            a(href='/') 首页
+                        li
+                            a(href='/view') 表白历史
+        div#main.wrapper.style1
+            .container
+                .row
+                    #sidebar.4u.sidebar
+                        section
+                            header.major
+                                h2 删除原因榜
+                            .row.half
+                                section.12u
+                                    ul.default
+                                        li
+                                            a(href='#') #162 与 #161 内容重复
+                                        li
+                                            a(href='#') #107 与 #106 内容重复
+                                        li
+                                            a(href='#') #64 因内容空洞且重复
+                                        li
+                                            a(href='#') #21 因标题和内容皆未填写
+                                //-
+                                    section.6u
+                                        ul.default
+                                            li
+                    #content.8u.skel-cell-important
+                        section
+                            header
+                                h2 表白显示
+                                span.byline 感人肺腑地赶出来了
+                            form(method='GET', action='/search')
+                                if !keyword
+                                    input(type='text', placeholder='搜索', style='width: 300px', name='keyword')
+                                else
+                                    input(type='text', value!=keyword, style='width: 300px', name='keyword')
+                            br
+                            if !search
+                                if pageId && pageId - 1 > 0
+                                    a(href!='/view/' + String(pageId - 1)) 上一页
+                                    span(style='margin-left: 30px')
+                                if doc && doc.length >= 30
+                                    a(href!='/view/' + String(pageId + 1)) 下一页
+                            else
+                                if pageId && pageId - 1 > 0
+                                    a(href!='/search?keyword=' + keyword + '&page=' + String(pageId - 1)) 上一页
+                                    span(style='margin-left: 30px')
+                                if doc && doc.length >= 30
+                                    a(href!='/search?keyword=' + keyword + '&page=' + String(pageId + 1)) 下一页
+                            if doc
+                                each x in doc
+                                    + giveContent(x)
+                            if !search
+                                if pageId && pageId - 1 > 0
+                                    a(href!='/view/' + String(pageId - 1)) 上一页
+                                    span(style='margin-left: 30px')
+                                if doc && doc.length >= 30
+                                    a(href!='/view/' + String(pageId + 1)) 下一页
+                            else
+                                if pageId && pageId - 1 > 0
+                                    a(href!='/search?keyword=' + keyword + '&page=' + String(pageId - 1)) 上一页
+                                    span(style='margin-left: 30px')
+                                if doc && doc.length >= 30
+                                    a(href!='/search?keyword=' + keyword + '&page=' + String(pageId + 1)) 下一页
+
+

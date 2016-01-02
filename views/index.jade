@@ -1,0 +1,123 @@
+extends layout
+
+block content
+    body.homepage
+        a(href='https://coding.net/u/jcpwfloi/p/bbq/git')
+            img(style='z-index: 99999; position: absolute; top: 0; right: 0; border: 0;', src='/images/pic05.png', alt='Fork me on GitHub', data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png')
+        #header
+            .container
+                h1
+                    a#logo(href='#') 华师大二附中表白墙
+                nav#nav
+                    ul
+                        li
+                            a(href='/') 首页
+                        li
+                            a(href='/view') 表白历史
+                        li
+                            a(href='/post') 我要表白
+                .banner
+                    .container
+                        section
+                            header.major
+                                h2 欢迎来到华师大二附中表白墙！
+                                span.byline
+                                    | 这是由 @root 发起的一个表白墙项目，大家尽情表白yoooooo
+                            a.button.alt(href='/view') 查看表白
+                            a.button.alt(href='/post', style='margin-left: 20px') 我要表白
+        .wrapper.style2
+            section.container
+                header.major
+                    h2 最新表白
+                    span.byline 最新的3条表白哟~
+                .row.no-collapse-1
+                    section.4u
+                        a.image.feature(href='#')
+                            img(src='/images/pic02.jpg', alt='')
+                        if (doc && doc[0])
+                            p= doc[0].content
+                    section.4u
+                        a.image.feature(href='#')
+                            img(src='/images/pic03.jpg', alt='')
+                        if (doc && doc[1])
+                            p= doc[1].content
+                    section.4u
+                        a.image.feature(href='#')
+                            img(src='/images/pic04.jpg', alt='')
+                        if (doc && doc[2])
+                            p= doc[2].content
+        #main.wrapper.style1
+            section.container
+                header.major
+                    h2 为什么我们要用表白墙
+                    span.byline Why should we use 'Confess your Love'?
+                .row
+                    .6u
+                        section
+                            ul.style
+                                li
+                                    span.fa.fa-wrench
+                                    h3 Anonymity
+                                    span 我们保证最高的匿名性，开发者也无法知道是谁发表的某一条消息。所有发布者的信息都采用不可逆加密存储。
+                                li
+                                    span.fa.fa-cloud
+                                    h3 Availability
+                                    span 我们保证最高的可用性，即使有老师查水表也木有关系哦～数据每天会在日本东京、美国洛杉矶备份一次～
+                    .6u
+                        section
+                            ul.style
+                                li
+                                    span.fa.fa-cogs
+                                    h3 Privacy
+                                    span 由于中国大陆的运营政策，我们不得不纪录下发布者的ip等信息，若发布者没有发布敏感消息我们不会获取用户隐私。
+                                li
+                                    span.fa.fa-leaf
+                                    h3 Joviality
+                                    span 在表白墙内，快乐无处不在，你可以做的包括但不限于表白，还能吐槽呢～
+        #footer
+            .container
+                .row
+                    .8u
+                        section
+                            header.major
+                                h3 华东师范大学第二附属中学
+                                span.byline Developed by @root
+                            .row
+                                section.6u
+                                    header.byline
+                                        h3 友情链接
+                                    ul.default
+                                        li
+                                            a(href='http://www.hsefz.cn') 华东师范大学第二附属中学校园网
+                                        li
+                                            a(href='http://tieba.baidu.com/华师大二附中') 华师大二附中贴吧
+                                section.6u
+                                    ul.default
+                                        li
+                                            a(href='#') ..
+                    .4u
+                        section
+                            header
+                                h2 CodeBursts
+                                span.byline 自豪地使用Linode服务器
+                            ul.contact
+                                li
+                                    span.address 地址
+                                    span 中国上海市浦东新区晨晖路555号
+                                        br
+                                        | 555, Chenhui Rd., Pudong District, Shanghai, China, 201203
+                                li
+                                    span.mail Email
+                                    span
+                                        a(href='#') jcpwfloi@gmail.com
+                                li
+                                    span.phone Phone
+                                    span (+86) 021 - 50801890
+                                li
+                                    span.phone Tel
+                                    span (+86) 021 - 50804338
+                .copyright
+                    | Design: @root&nbsp;&nbsp;&nbsp;
+                    | Images:&nbsp;&nbsp;
+                    a(href='http://unsplash.com') Unsplash
+
