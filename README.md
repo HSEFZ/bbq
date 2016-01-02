@@ -62,4 +62,8 @@ npm start
 
 对于Windows用户：自己看着办。
 
+# 开源许可证
+
+    MIT License
+
 
