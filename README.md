@@ -9,6 +9,7 @@
     apt-get install git git-core gyp
 # 对于CentOS用户需要：
     yum install git git-core gyp
+
 git clone https://github.com/joyent/node
 ./configure
 make
@@ -36,18 +37,6 @@ brew install node
 对于CentOS用户：yum install mongodb
 
 对于Windows用户：自己看着办
-
-### 挂载MongoDB
-
-对于Mac/Ubuntu/CentOS用户：
-
-```bash
-cd /
-mkdir data
-mkdir data/db
-cd data/db
-mongod --dbpath . &> mongodb.log &
-```
 
 ## 开启服务器
 
